@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>直播河南</title>
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<!--log-->
+<div class="wrap overflow pt25 clearfix">
+    <p><img src="{{url_for('static',filename='images/index_r3_c3.jpg')}}" class="fl"/></p>
+    <p class="fl ml50 pt20 overflow">
+        <iframe name="weather_inc" src="http://i.tianqi.com/index.php?c=code&id=1" width="330" height="35"
+                frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+    </p>
+</div>
+<!--log-->
+<!--头条-->
+<div class=" wrap clearfix overflow pt30">
+    <p><img src="{{url_for('static',filename='images/index_r5_c3.jpg')}}" class="fl"/></p>
+    <dl class="pb15  overflow cl mt10 ">
+        <dt><a href="javascript:void(0)" class=" f30 lanse">{{lead_news.title}}</a></dt>
+        <dd class="hs l-30 f18">{{lead_news.content}}</dd>
+    </dl>
+</div>
+<!--头条-->
+
+<!--新闻部分-->
+<div class="wrap pt40 overflow">
+    <div class="w705 overflow fl">
+        <script type="text/javascript" src="{{url_for('static',filename='js/jquery-1.8.3.min.js')}}"></script>
+        <script type="text/javascript" src="{{url_for('static',filename='js/koala.min.1.5.js')}}"></script>
+        <div id="fsD1" class="focus">
+            <div id="D1pic1" class="fPic">
+                {%  for banner in banners %}
+                <div class="fcon" style="display: none;">
+                    <a target="_blank" href="javascript:void(0)"><img src="{{ banner.cover_url }}" style="opacity: 1; "></a>
+                    <span class="shadow"><a target="_blank" href="javascript:void(0)">{{ banner.title }}</a></span>
+                </div>
+                {% endfor %}
+
+<!--                <div class="fcon" style="display: none;">-->
+<!--                    <a target="_blank" href="javascript:void(0)"><img src="{{url_for('static',filename='images/02.jpg')}}" style="opacity: 1; "></a>-->
+<!--                    <span class="shadow"><a target="_blank" href="javascript:void(0)">佟大为登封面表情搞怪 成熟男人也是天真男孩</a></span>-->
+<!--                </div>-->
+
+<!--                <div class="fcon" style="display: none;">-->
+<!--                    <a target="_blank" href="javascript:void(0)"><img src="{{url_for('static',filename='images/03.jpg')}}" style="opacity: 1; "></a>-->
+<!--                    <span class="shadow"><a target="_blank" href="javascript:void(0)">21岁出柜超模巴厘自曝搞笑全裸照</a></span>-->
+<!--                </div>-->
+
+<!--                <div class="fcon" style="display: none;">-->
+<!--                    <a target="_blank" href="javascript:void(0)"><img src="{{url_for('static',filename='images/04.jpg')}}" style="opacity: 1; "></a>-->
+<!--                    <span class="shadow"><a target="_blank" href="javascript:void(0)">金喜善出道21年 皮肤白皙越长越“嫩”！</a></span>-->
+<!--                </div>-->
+            </div>
+            <div class="fbg">
+                <div class="D1fBt" id="D1fBt">
+                    <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>1</i></a>
+                    <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>2</i></a>
+                    <a href="javascript:void(0)" hidefocus="true" target="_self" class="current"><i>3</i></a>
+                    <a href="javascript:void(0)" hidefocus="true" target="_self" class=""><i>4</i></a>
+                </div>
+            </div>
+            <span class="prev"></span>
+            <span class="next"></span>
+        </div>
+        <script type="text/javascript">
+            Qfast.add('widgets', {path: "{{url_for('static',filename='js/terminator2.2.min.js')}}", type: "js", requires: ['fx']});
+            Qfast(false, 'widgets', function () {
+                K.tabs({
+                    id: 'fsD1',   //焦点图包裹id
+                    conId: "D1pic1",  //** 大图域包裹id
+                    tabId: "D1fBt",
+                    tabTn: "a",
+                    conCn: '.fcon', //** 大图域配置class
+                    auto: 1,   //自动播放 1或0
+                    effect: 'fade',   //效果配置
+                    eType: 'click', //** 鼠标事件
+                    pageBt: true,//是否有按钮切换页码
+                    bns: ['.prev', '.next'],//** 前后按钮配置class
+                    interval: 3000  //** 停顿时间
+                })
+            })
+        </script>
+
+    </div>
+    <div class="w470 overflow fr">
+        {% for new in news %}
+        <dl class="pb20 boder-bb overflow cl mt10 ">
+            <dt><a href="javascript:void(0)" class="f20 ">{{ new.title }}</a></dt>
+            <dd class="hs l-30">{{ new.content }}</dd>
+        </dl>
+        {% endfor %}
+<!--        <dl class="pb20 boder-bb overflow cl mt10 ">-->
+<!--            <dt><a href="javascript:void(0)" class="f20">新宝马X1长轴版 领衔车展重磅SUV</a></dt>-->
+<!--            <dd class="hs l-30">带你吃喝玩乐逛车展|上市新车早知"到"|路虎将推出揽胜轿跑版</dd>-->
+<!--        </dl>-->
+<!--        <dl class="pb20 boder-bb overflow cl mt10 ">-->
+<!--            <dt><a href="javascript:void(0)" class="f20">新宝马X1长轴版 领衔车展重磅SUV</a></dt>-->
+<!--            <dd class="hs l-30">带你吃喝玩乐逛车展|上市新车早知"到"|路虎将推出揽胜轿跑版</dd>-->
+<!--        </dl>-->
+<!--        <dl class="pb20 boder-bb overflow cl mt10 ">-->
+<!--            <dt><a href="javascript:void(0)" class="f20">新宝马X1长轴版 领衔车展重磅SUV</a></dt>-->
+<!--            <dd class="hs l-30">带你吃喝玩乐逛车展|上市新车早知"到"|路虎将推出揽胜轿跑版</dd>-->
+<!--        </dl>-->
+<!--        <dl class="pb20 boder-bb overflow cl mt10 ">-->
+<!--            <dt><a href="javascript:void(0)" class="f20">新宝马X1长轴版 领衔车展重磅SUV</a></dt>-->
+<!--            <dd class="hs l-30">带你吃喝玩乐逛车展|上市新车早知"到"|路虎将推出揽胜轿跑版</dd>-->
+<!--        </dl>-->
+    </div>
+</div>
+
+
+<!--社会实时-->
+<div class="wrap overflow  clearfix pt20">
+    <a href="javascript:void(0)"><img src="{{url_for('static',filename='images/index_r23_c5.jpg')}}" class="fl"/></a>
+    <img src="{{url_for('static',filename='images/index-22_r18_c9.jpg')}}" class="fr pt25"/>
+</div>
+
+
+<!--底部文章排序-->
+<div class="bot_inf_news">
+    <!--1-->
+    <div class="bot_r">
+        <div class="bot_r_top">
+            <p>热点文章</p>
+            <span>浏览量</span>
+        </div>
+        <div class="bot_r_bot">
+            <ul>
+<!--                模板标签:article-->
+                {% for article in articles %}
+                <li><p>{{ article.count }}</p><span class="{% if loop.index <= 3 %}t1{% else %}t2{% endif %}">{{ loop.index }}</span> <a href="javascript:void(0)">{{ article.title }}</a></li>
+                {% endfor %}
+                <li><p></p><span class="t1"></span> <a href="javascript:void(0)">{{ 'aBc'|upper }}</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--1-->
+    <div class="img-scroll">
+        <div class="img-list">
+            <div class="img_list1">
+                <ul>
+                    <li>
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+                    <li>
+
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+                    <li>
+
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+                    <li>
+
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+                    <li>
+
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+                    <li>
+
+                        <p>
+                            <a href="#">
+                                <img src="{{url_for('static',filename='images/zhibo.jpg')}}"/>
+                            </a>
+                        </p>
+                        <span><a href="#"><img src="{{url_for('static',filename='images/video.png')}}"/></a></span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-1.4.2.min.js')}}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename='js/011.js')}}"></script>
+</div>
+</div>
+
+
+<!--版权-->
+<div class="copy_bg clearfix overflow mt20">
+    <div class="footer-link footer-link-index wrap clearfix mt40 overflow">
+        <dl>
+            <dt>友情链接</dt>
+            <dd>
+                <a href="javascript:void(0)" target="_blank">汽车</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">汽车之家</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">中国客车网</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">爱意汽车</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">上海58同城</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">网通社</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">车质网</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">蜂鸟网</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">天极网</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">人民网汽车</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">驾考宝典</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">平行进口车</a><i>|</i>
+                <a href="javascript:void(0)" target="_blank">车型大全</a><i>|</i>
+            </dd>
+        </dl>
+
+    </div>
+    <div class="nav_bb"><a href="javascript:void(0)">广告服务</a> | <a href="javascript:void(0)">联系我们</a> | <a
+            href="javascript:void(0)">招聘信息</a> |<a href="javascript:void(0)"> 网站律师</a> | <a
+            href="javascript:void(0)">通行证注册</a> |<a href="javascript:void(0)"> 产品答疑</a></div>
+    <div class="wrap pt20 pb25 tc l-19">
+        Copyright (c) 1996-2014 SINA Corporation, All Rights Reserved<br/>
+
+        车家网 版权所有
+    </div>
+</div>
+<!--版权-->
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery-1.4.2.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/011.js')}}"></script>
+</body>
+</html>

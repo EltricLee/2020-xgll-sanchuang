@@ -25,5 +25,12 @@ def create_app(config=None):
         elif config.endswith('.py'):
             app.config.from_pyfile(config)
 
+    #注册蓝图
+    import router,models
+    router.init_app(app)
+    #将model注册到app
+    models.init_app(app)
+
     # 返回核心对象
     return app
+

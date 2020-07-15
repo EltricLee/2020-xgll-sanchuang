@@ -1,7 +1,6 @@
 from app import create_app
-from router.view import app
 #实例化一个app
-
+app = create_app()
 #运行app
 #debug=True =>热启动 =》代码做了修改，自动重启
 
